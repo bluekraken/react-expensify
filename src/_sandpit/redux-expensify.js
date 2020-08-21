@@ -1,7 +1,6 @@
 import { createStore, combineReducers } from "redux";
 import { v4 as uuidv4 } from "uuid";
 
-
 // Add expense
 const addExpense = (
     {
@@ -33,31 +32,6 @@ const removeExpense = ({ guid } = {}) => ({
     type: "REMOVE_EXPENSE",
     guid
 });
-
-// Expenses reducer
-const expensesDefaultState = [];
-
-const expensesReducer = (state = expensesDefaultState, action) => {
-    switch (action.type) {
-        case "ADD_EXPENSE":
-            return [...state, action.expense];
-        case "EDIT_EXPENSE":
-            return state.map((expense) => {
-                if (expense.guid === action.guid) {
-                    return {
-                        ...expense,
-                        ...action.updates
-                    };
-                } else {
-                    return expense;
-                }
-            });
-        case "REMOVE_EXPENSE":
-            return state.filter(({ guid }) => guid !== action.guid);
-        default:
-            return state;
-    }
-};
 
 // Set End Date
 const setEndDate = (endDate) => ({

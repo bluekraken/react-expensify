@@ -1,7 +1,13 @@
+// Imports
 import React from "react";
 
-export const HomePage = () => (
+import ExpenseList from "./ExpenseList";
+import ExpenseListFilters from "./ExpenseListFilters";
+
+// Return the home page
+export default () => (
     <div>
-        This is from my home page
+        <ExpenseListFilters />
+        <ExpenseList />
     </div>
 );

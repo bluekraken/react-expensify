@@ -1,6 +1,8 @@
+// Imports
 import React from "react";
 
-export const HelpPage = () => (
+// Return the help page
+export default () => (
     <div>
         This is from my help component
     </div>
