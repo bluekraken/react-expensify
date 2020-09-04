@@ -6,7 +6,7 @@ const filtersDefaultState = {
     text: "",
     sortBy: "date",
     startDate: moment().startOf("quarter"),
-    endDate: moment()
+    endDate: moment().endOf("day")
 };
 
 // Return filters reducer
@@ -18,7 +18,7 @@ export default (state = filtersDefaultState, action) => {
             return { ...state, startDate: action.startDate };
         case "SET_TEXT_FILTER":
             return { ...state, text: action.text };
-        case "SORT_BY":
+        case "SET_SORT_BY":
             return { ...state, sortBy: action.sortBy};
         default:
             return state;

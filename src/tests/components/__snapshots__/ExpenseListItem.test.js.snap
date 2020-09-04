@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render ExpenseListItem correctly 1`] = `
+<div>
+  <p>
+    <Link
+      to="/edit/157eccc1-92ba-4403-8a69-493e9cb135f7"
+    >
+      Train ticket
+    </Link>
+    : 
+    3980
+     - 
+    30/08/2020
+  </p>
+</div>
+`;

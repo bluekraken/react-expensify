@@ -1,8 +1,8 @@
 // Imports
 import { createStore, combineReducers } from "redux";
 
-import expensesReducer from "../reducers/expensesReducer";
-import filtersReducer from "../reducers/filtersReducer";
+import expensesReducer from "../reducers/expenses";
+import filtersReducer from "../reducers/filters";
 
 // Create app store
 export default () => {

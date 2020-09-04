@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render ExpenseList with an empty message 1`] = `
+<div>
+  <p>
+    No expenses
+  </p>
+</div>
+`;
+
+exports[`should render ExpenseList with expenses 1`] = `
+<div>
+  <_default
+    amount={575}
+    createdOn={1596927600000}
+    description="Cup of coffee"
+    guid="12150247-41f9-46cd-b5d5-815b15fe42d4"
+    key="12150247-41f9-46cd-b5d5-815b15fe42d4"
+    notes="The Rabbit Hole"
+  />
+  <_default
+    amount={800}
+    createdOn={1596236400000}
+    description="Car parking"
+    guid="6ad29907-9966-4a06-a179-cd9d8ead6ef8"
+    key="6ad29907-9966-4a06-a179-cd9d8ead6ef8"
+    notes="St. Ives"
+  />
+  <_default
+    amount={3980}
+    createdOn={1598742000000}
+    description="Train ticket"
+    guid="157eccc1-92ba-4403-8a69-493e9cb135f7"
+    key="157eccc1-92ba-4403-8a69-493e9cb135f7"
+    notes="Return to London Waterloo"
+  />
+</div>
+`;
