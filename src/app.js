@@ -13,14 +13,6 @@ import "./styles/styles.scss";
 // Create the app store
 const appStore = createAppStore();
 
-// Subscribe to the app store
-appStore.subscribe(() => {
-    const state = appStore.getState();
-    const filteredExpenses = selectExpenses(state.expenses, state.filters);
-
-    console.log(filteredExpenses);
-});
-
 // Render the DOM
 const jsx = (
     <Provider store={appStore}>
