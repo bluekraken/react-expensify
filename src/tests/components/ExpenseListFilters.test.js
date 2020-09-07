@@ -48,13 +48,13 @@ test("should handle setStartDate and setEndDate", () => {
         startDate: moment().startOf("month"),
         endDate: moment().endOf("month")
     };
-    wrapper.find("#dates").prop("onDatesChange")(dates);
+    wrapper.find("withStyles(DateRangePicker)").prop("onDatesChange")(dates);
     expect(setStartDate).toHaveBeenLastCalledWith(dates.startDate);
     expect(setEndDate).toHaveBeenLastCalledWith(dates.endDate);
 });
 
 test("should update the calendar focus on change", () => {
     const calendarFocused = "endDate";
-    wrapper.find("#dates").prop("onFocusChange")(calendarFocused);
+    wrapper.find("withStyles(DateRangePicker)").prop("onFocusChange")(calendarFocused);
     expect(wrapper.state("calendarFocused")).toBe(calendarFocused);
 });
