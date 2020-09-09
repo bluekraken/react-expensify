@@ -1,15 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import numeral from "numeral";
+import locales from "numeral/locales";
 
 // Return the expense list item
-export default ( { guid, description, amount, createdOn } ) => (
-    <div>
-        <p>
+export default ( { guid, description, amount, createdOn } ) => {
+    numeral.locale("en-gb");
+    return (
+        <div>
             <Link to={`/edit/${guid}`}>
-                {description}
+                <h3>{description}</h3>
             </Link>
-            : {amount} - {moment(createdOn).format("DD/MM/YYYY")}
-        </p>
-    </div>
-);
+            <p>
+                {numeral(amount / 100).format("$0,0.00")}
+                 -
+                {moment(createdOn).format("Do MMMM, YYYY")}
+            </p>
+        </div>
+    );
+};
