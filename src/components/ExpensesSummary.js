@@ -8,17 +8,22 @@ import selectExpenses from "../selectors/expenses";
 import totalExpenses from "../selectors/totalExpenses";
 
 // Return the expenses summary
-export const ExpensesSummary = (props) => {
+export const ExpensesSummary = ({ expensesCount, expensesTotal }) => {
     numeral.locale("en-gb");
-    const word = props.expenses.length === 1 ? "expense" : "expenses";
-    const formattedTotal = numeral(totalExpenses(props.expenses) / 100).format("$0,0.00");
+    const word = expensesCount === 1 ? "expense" : "expenses";
+    const formattedTotal = numeral(expensesTotal / 100).format("$0,0.00");
     return (
         <div>
-            <h2>Viewing {props.expenses.length} {word} totalling {formattedTotal}</h2>
+            <h2>Viewing {expensesCount} {word} totalling {formattedTotal}</h2>
         </div>
     );
 }
 
-const mapStateToProps = (state) => ({ expenses: selectExpenses(state.expenses, state.filters) });
+const mapStateToProps = (state) => {
+    const visibleExpenses = selectExpenses(state.expenses, state.filters);
+    const expensesCount = visibleExpenses.length;
+    const expensesTotal = totalExpenses(visibleExpenses);
+    return { expensesCount, expensesTotal };
+};
 
 export default connect(mapStateToProps)(ExpensesSummary);
