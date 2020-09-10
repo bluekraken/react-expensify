@@ -10,11 +10,11 @@ import totalExpenses from "../selectors/totalExpenses";
 // Return the expenses summary
 export const ExpensesSummary = (props) => {
     numeral.locale("en-gb");
-    const total = totalExpenses(props.expenses);
     const word = props.expenses.length === 1 ? "expense" : "expenses";
+    const formattedTotal = numeral(totalExpenses(props.expenses) / 100).format("$0,0.00");
     return (
         <div>
-            <p>Viewing {props.expenses.length} {word} totalling {numeral(total / 100).format("$0,0.00")}</p>
+            <h2>Viewing {props.expenses.length} {word} totalling {formattedTotal}</h2>
         </div>
     );
 }

@@ -2,39 +2,39 @@
 
 exports[`should render ExpenseSummary correctly with a single expense 1`] = `
 <div>
-  <p>
+  <h2>
     Viewing 
     1
      
     expense
      totalling 
     £39.80
-  </p>
+  </h2>
 </div>
 `;
 
 exports[`should render ExpenseSummary correctly with muliple expenses 1`] = `
 <div>
-  <p>
+  <h2>
     Viewing 
     3
      
     expenses
      totalling 
     £53.55
-  </p>
+  </h2>
 </div>
 `;
 
 exports[`should render ExpenseSummary correctly with no expenses 1`] = `
 <div>
-  <p>
+  <h2>
     Viewing 
     0
      
     expenses
      totalling 
     £0.00
-  </p>
+  </h2>
 </div>
 `;
