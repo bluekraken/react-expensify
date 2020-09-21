@@ -6,7 +6,7 @@ import locales from "numeral/locales";
 
 // Return the expense list item
 export default ( { guid, description, amount, createdOn } ) => {
-    numeral.locale("en-gb");
+    numeral.locale("en-GB");
     return (
         <div>
             <Link to={`/edit/${guid}`}>

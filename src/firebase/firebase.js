@@ -1,20 +1,17 @@
 // Imports
 import firebase from "firebase/app";
 import "firebase/firestore";
-import { v4 as uuidv4 } from "uuid";
-// import expenses from "../tests/fixtures/expenses";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAnXFCPJmOzEXg8_PEG9CAJxt04szdg7wQ",
-    authDomain: "react-expensify-13e8f.firebaseapp.com",
-    databaseURL: "https://react-expensify-13e8f.firebaseio.com",
-    projectId: "react-expensify-13e8f",
-    storageBucket: "react-expensify-13e8f.appspot.com",
-    messagingSenderId: "11666500961",
-    appId: "1:11666500961:web:f151580bf6112522cbe920",
-    measurementId: "G-6YW5F5G7X3"
+    apiKey: process.env.FIREBASE_API_KEY,
+    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+    databaseURL: process.env.FIREBASE_DATABASE_URL,
+    projectId: process.env.FIREBASE_PROJECT_ID,
+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.FIREBASE_API_ID
   };
 
 firebase.initializeApp(firebaseConfig);
 
-const db = firebase.firestore();
+export default firebase.firestore();
