@@ -6,6 +6,7 @@ import "react-dates/lib/css/_datepicker.css";
 
 import AppRouter from "./routers/AppRouter";
 import createAppStore from "./store/createAppStore";
+import { startSetupExpenses } from "./actions/expenses";
 import "normalize.css/normalize.css";
 import "./styles/styles.scss";
 
@@ -19,4 +20,8 @@ const jsx = (
     </Provider>
 );
 
-ReactDOM.render(jsx, document.getElementById('app'));
+ReactDOM.render(<p>Loading expenses...</p>, document.getElementById('app'));
+
+appStore.dispatch(startSetupExpenses()).then(() => {
+    ReactDOM.render(jsx, document.getElementById('app'));
+})

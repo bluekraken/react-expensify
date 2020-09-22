@@ -1,29 +1,13 @@
 // Imports
-import firebase from "firebase/app";
-import "firebase/firestore";
+import db from "../firebase/firebase";
 import { v4 as uuidv4 } from "uuid";
 // import expenses from "../tests/fixtures/expenses";
 
-const firebaseConfig = {
-    apiKey: "AIzaSyAnXFCPJmOzEXg8_PEG9CAJxt04szdg7wQ",
-    authDomain: "react-expensify-13e8f.firebaseapp.com",
-    databaseURL: "https://react-expensify-13e8f.firebaseio.com",
-    projectId: "react-expensify-13e8f",
-    storageBucket: "react-expensify-13e8f.appspot.com",
-    messagingSenderId: "11666500961",
-    appId: "1:11666500961:web:f151580bf6112522cbe920",
-    measurementId: "G-6YW5F5G7X3"
-  };
-
-firebase.initializeApp(firebaseConfig);
-
 const guid = "690698eb-8830-4084-bb0c-1d54eecbc1b1";
-
-const database = firebase.firestore();
 
 const expenses = [];
 
-const unsubscribe = database.collection("expenses")
+const unsubscribe = db.collection("expenses")
   .onSnapshot((snapshot) => {
     snapshot.docChanges().forEach((change) => {
 
@@ -54,7 +38,7 @@ const unsubscribe = database.collection("expenses")
     console.log(error);
   });
 
-// const unsubscribe = database.collection("expenses")
+// const unsubscribe = db.collection("expenses")
 //   .onSnapshot((snapshot) => {
 //     const expenses = [];
 //     snapshot.forEach((doc) => {
@@ -69,7 +53,7 @@ const unsubscribe = database.collection("expenses")
 //   });
 
 // expenses.forEach((expense) => {
-//   database.collection("expenses")
+//   db.collection("expenses")
 //     .doc(expense.guid)
 //     .set({
 //       description: expense.description,
@@ -83,7 +67,7 @@ const unsubscribe = database.collection("expenses")
 // unsubscribe();
 
 // setTimeout(() => {
-//   database.collection("users")
+//   db.collection("users")
 //     .doc(uuidv4())
 //     .set({
 //       name: "Claire Hearse",
@@ -97,7 +81,7 @@ const unsubscribe = database.collection("expenses")
 
 
 
-const userRef = database.collection("users").doc(guid);
+const userRef = db.collection("users").doc(guid);
 
 // userRef
 //   .update({

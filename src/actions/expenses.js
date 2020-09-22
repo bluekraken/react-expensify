@@ -8,7 +8,7 @@ const addExpense = (expense) => ({
     expense
 });
 
-export const saveAddExpense = (expenseData = {}) => {
+export const startAddExpense = (expenseData = {}) => {
     return (dispatch) => {
         const {
             description = "",
@@ -35,14 +35,63 @@ export const saveAddExpense = (expenseData = {}) => {
 
 
 // Edit expense
-export const editExpense = (guid, updates) => ({
+const editExpense = (guid, updates) => ({
     type: "EDIT_EXPENSE",
     guid,
     updates
 });
 
+export const startEditExpense = (guid, updates) => {
+    return (dispatch) => {
+
+        return db.collection("expenses")
+            .doc(guid)
+            .update({ ...updates })
+            .then(() => {
+                dispatch(editExpense(guid, updates));
+            });
+    };
+};
+
 // Remove expense
-export const removeExpense = ({ guid } = {}) => ({
+const removeExpense = (guid) => ({
     type: "REMOVE_EXPENSE",
     guid
 });
+
+export const startRemoveExpense = (guid) => {
+    return (dispatch) => {
+
+        return db.collection("expenses")
+            .doc(guid)
+            .delete()
+            .then(() => {
+                dispatch(removeExpense(guid));
+            });
+    };
+};
+
+// Setup expenses
+const setupExpenses = (expenses) => ({
+    type: "SETUP_EXPENSES",
+    expenses
+});
+
+export const startSetupExpenses = () => {
+    return (dispatch) => {
+        return db.collection("expenses")
+            .get()
+            .then((snapshot) => {
+                const expenses = [];
+
+                snapshot.docs.forEach((doc) => {
+                    expenses.push({
+                        guid: doc.id,
+                        ...doc.data()
+                    });
+                });
+
+                dispatch(setupExpenses(expenses));
+            });
+    };
+};

@@ -19,6 +19,8 @@ export default (state = expensesDefaultState, action) => {
             });
         case "REMOVE_EXPENSE":
             return state.filter(({ guid }) => guid !== action.guid);
+        case "SETUP_EXPENSES":
+            return action.expenses;
         default:
             return state;
     }
