@@ -9,12 +9,12 @@ import { startEditExpense, startRemoveExpense } from "../actions/expenses";
 export class EditExpensePage extends React.Component {
     handleSubmit = (expense) => {
         this.props.startEditExpense(this.props.expense.guid, expense);
-        this.props.history.push("/");
+        this.props.history.push("/dashboard");
     }
 
     handleRemove = () => {
         this.props.startRemoveExpense(this.props.expense.guid);
-        this.props.history.push("/");
+        this.props.history.push("/dashboard");
     }
 
     render() {

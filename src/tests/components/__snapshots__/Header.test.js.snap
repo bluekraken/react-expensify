@@ -9,9 +9,9 @@ exports[`should render Header correctly 1`] = `
     <NavLink
       activeClassName="is-active"
       exact={true}
-      to="/"
+      to="/dashboard"
     >
-      Go home
+      Dashboard
     </NavLink>
   </p>
   <p>
@@ -30,5 +30,10 @@ exports[`should render Header correctly 1`] = `
       Help, I need somebody
     </NavLink>
   </p>
+  <button
+    onClick={[Function]}
+  >
+    Logout
+  </button>
 </header>
 `;

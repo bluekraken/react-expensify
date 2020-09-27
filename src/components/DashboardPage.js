@@ -5,7 +5,7 @@ import ExpenseList from "./ExpenseList";
 import ExpenseListFilters from "./ExpenseListFilters";
 import ExpensesSummary from "./ExpensesSummary";
 
-// Return the home page
+// Return the dashboard page
 export default () => (
     <div>
         <ExpensesSummary />
