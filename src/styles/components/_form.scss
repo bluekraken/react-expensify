@@ -1,0 +1,16 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 $m-size;
+    > * { margin-bottom: $m-size; }
+}
+
+.form__error {
+    margin: 0 0 0 $m-size;
+    color: $red;
+    font-style: italic;
+}
+
+.form__remove {
+    padding: 0 $m-size;
+}

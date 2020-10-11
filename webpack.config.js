@@ -46,6 +46,9 @@ module.exports = (env) => {
                     { loader: "css-loader", options: { sourceMap: true } },
                     { loader: "sass-loader", options: { sourceMap: true } }
                 ]
+            }, {
+                test: /\.(png|jpg)$/,
+                loader: "url-loader"
             }]
         },
         devtool: isProduction ? "source-map" : "inline-source-map",

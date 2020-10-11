@@ -1,6 +1,7 @@
 // Imports
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import numeral from "numeral";
 import locales from "numeral/locales";
 
@@ -13,8 +14,13 @@ export const ExpensesSummary = ({ expensesCount, expensesTotal }) => {
     const word = expensesCount === 1 ? "expense" : "expenses";
     const formattedTotal = numeral(expensesTotal / 100).format("$0,0.00");
     return (
-        <div>
-            <h2>Viewing {expensesCount} {word} totalling {formattedTotal}</h2>
+        <div className="content-container page-header">
+            <h1 className="page-header__title">
+                Viewing <span>{expensesCount}</span> {word} totalling <span>{formattedTotal}</span>
+            </h1>
+            <div className="page_header__actions">
+                <Link className="button" to="/create">Add expense</Link>
+            </div>
         </div>
     );
 }

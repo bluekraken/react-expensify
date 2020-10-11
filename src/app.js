@@ -11,6 +11,7 @@ import { login, logout } from "./actions/auth";
 import "normalize.css/normalize.css";
 import "./styles/styles.scss";
 import { firebase } from "./firebase/firebase";
+import LoadingPage from "./components/LoadingPage";
 
 // Create the app store
 const appStore = createAppStore();
@@ -26,12 +27,12 @@ let hasRendered = false;
 
 const renderApp = () => {
     if (!hasRendered) {
-        ReactDOM.render(jsx, document.getElementById('app'));
+        ReactDOM.render(jsx, document.getElementById('js-app'));
         hasRendered = true;
     }
 }
 
-ReactDOM.render(<p>Loading expenses...</p>, document.getElementById('app'));
+ReactDOM.render(<LoadingPage />, document.getElementById('js-app'));
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {

@@ -1,18 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render ExpenseListItem correctly 1`] = `
-<div>
-  <Link
-    to="/edit/157eccc1-92ba-4403-8a69-493e9cb135f7"
-  >
-    <h3>
+<Link
+  className="list-item"
+  to="/edit/157eccc1-92ba-4403-8a69-493e9cb135f7"
+>
+  <div>
+    <h3
+      className="list-item__description"
+    >
       Train ticket
     </h3>
-  </Link>
-  <p>
+    <span
+      className="list-item__date"
+    >
+      30th August, 2020
+    </span>
+  </div>
+  <h3
+    className="list-item__amount"
+  >
     £39.80
-    -
-    30th August, 2020
-  </p>
-</div>
+  </h3>
+</Link>
 `;

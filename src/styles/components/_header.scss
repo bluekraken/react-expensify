@@ -1,0 +1,18 @@
+.header {
+    background: $navy-blue;
+}
+
+.header__content {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: $m-size $s-size;
+}
+
+.header__title {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    h1 { margin: 0;}
+    &:hover { color: $light-blue; }
+}

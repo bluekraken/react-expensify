@@ -8,15 +8,12 @@ import locales from "numeral/locales";
 export default ( { guid, description, amount, createdOn } ) => {
     numeral.locale("en-GB");
     return (
-        <div>
-            <Link to={`/edit/${guid}`}>
-                <h3>{description}</h3>
-            </Link>
-            <p>
-                {numeral(amount / 100).format("$0,0.00")}
-                 -
-                {moment(createdOn).format("Do MMMM, YYYY")}
-            </p>
-        </div>
+        <Link className="list-item" to={`/edit/${guid}`}>
+            <div>
+                <h3 className="list-item__description">{description}</h3>
+                <span className="list-item__date">{moment(createdOn).format("Do MMMM, YYYY")}</span>
+            </div>
+            <h3 className="list-item__amount">{numeral(amount / 100).format("$0,0.00")}</h3>
+        </Link>
     );
 };
